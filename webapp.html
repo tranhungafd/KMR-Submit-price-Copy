@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[BOS] KMR Special Price Record - Nhập liệu</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/webapp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Required field styling */
+        .required-mark {
+            color: #dc2626;
+            font-weight: bold;
+            margin-left: 3px;
+            font-size: 16px;
+        }
+
+        /* Improved Info Box Styling */
+        .improved-info-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #0284c7;
+            border-left: 5px solid #0284c7;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #0c4a6e;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 12px;
+        }
+
+        .info-header i {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            border-left: 3px solid #0ea5e9;
+        }
+
+        .info-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-section-title {
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 8px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-section-content {
+            color: #0f172a;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .sheet-link-improved {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .sheet-link-improved:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+
+        .monthly-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+        }
+
+        .monthly-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
+            background: linear-gradient(135deg, #047857, #065f46);
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, #fef3c7, #fde68a);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #92400e;
+        }
+
+        /* Section Headers with Required Mark */
+        .section-header-with-required {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .section-header-with-required i {
+            margin-right: 10px;
+            color: #3b82f6;
+            font-size: 20px;
+        }
+
+        /* Form styling improvements */
+        .form-group-improved {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-label-improved {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        .form-input-improved {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background-color: #ffffff;
+        }
+
+        .form-input-improved:focus {
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background-color: #fafbfb;
+        }
+
+        /* VAT info section improvements */
+        .vat-info-container {
+            margin-bottom: 20px;
+            padding: 18px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 10px;
+            border: 1px solid #22c55e;
+            border-left: 4px solid #22c55e;
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.1);
+        }
+        
+        .vat-info-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #15803d;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .vat-info-header i {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .vat-info-content {
+            color: #166534;
+            font-size: 14px;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 12px;
+            border-radius: 6px;
+        }
+        
+        .vat-info-note {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #059669;
+            font-style: italic;
+        }
+
+        /* VAT Confirmation Dialog Styles */
+        .vat-confirm-dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .vat-confirm-dialog.show {
+            opacity: 1;
+        }
+
+        .vat-confirm-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            position: relative;
+            border: 1px solid #e9ecef;
+        }
+
+        .vat-confirm-dialog.show .vat-confirm-content {
+            transform: scale(1);
+        }
+
+        .vat-confirm-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .vat-confirm-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, #ffc107, #ff8c00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .vat-confirm-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0 0 8px;
+        }
+
+        .vat-confirm-subtitle {
+            font-size: 14px;
+            color: #6c757d;
+            margin: 0;
+        }
+
+        .vat-confirm-message {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .vat-confirm-message-main {
+            font-size: 16px;
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .vat-confirm-message-sub {
+            font-size: 14px;
+            color: #856404;
+            line-height: 1.5;
+        }
+
+        .vat-price-highlight {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 0 2px;
+        }
+
+        .vat-info-box {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .vat-info-box h4 {
+            color: #1976d2;
+            margin: 0 0 10px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .vat-info-list {
+            margin: 0;
+            padding-left: 20px;
+            color: #1565c0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .vat-confirm-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .vat-btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .vat-btn-secondary {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 2px solid #dee2e6;
+        }
+
+        .vat-btn-secondary:hover {
+            background: #e9ecef;
+            color: #495057;
+            transform: translateY(-1px);
+        }
+
+        .vat-btn-primary {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .vat-btn-primary:hover {
+            background: linear-gradient(135deg, #218838, #1cc88a);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+
+        .vat-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #adb5bd;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .vat-close-btn:hover {
+            color: #6c757d;
+            background: #f8f9fa;
+        }
+
+        /* Animation classes */
+        .shake-animation {
+            animation: shake 0.6s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .vat-confirm-content {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .vat-confirm-buttons {
+                flex-direction: column;
+            }
+            
+            .vat-confirm-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 25px;
+            }
+            
+            .vat-confirm-title {
+                font-size: 18px;
+            }
+            
+            .info-section {
+                padding: 12px;
+            }
+            
+            .improved-info-box {
+                padding: 20px;
+            }
+            
+            .sheet-link-improved,
+            .monthly-link {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <img class="logo" src="images/Logo.png" alt="Logo">
+            <h1>[BOS] KMR Special Price Record</h1>
+        </div>
+        
+        <div class="header-right">
+            <div class="team-control-section">
+                <div class="team-box">
+                    <div class="team-info">
+                        <span id="team-name-display">Đang tải...</span>
+                        <span class="sheet-info">
+                            <a id="sheet-link" href="#" target="_blank" title="Mở Google Sheet trong tab mới">
+                                <i class="fas fa-table sheet-icon"></i>
+                                <span>Xem Sheet</span>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <div id="team-switcher-container"></div>
+            </div>
+            
+            <div class="user-container">
+                <div id="user-info" class="user-info"></div>
+                <div class="user-actions">
+                    <button class="btn-icon btn-home" id="homeButton" title="Quay lại trang chủ">
+                        <i class="fas fa-home"></i>
+                    </button>
+                    <button class="btn-icon btn-logout" id="logoutButton" title="Đăng xuất">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content section với layout cải thiện -->
+    <div class="content">
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-section="input">
+                <i class="fas fa-edit tab-icon"></i> Nhập liệu
+            </div>
+            <div class="nav-tab" data-section="help">
+                <i class="fas fa-question-circle tab-icon"></i> Trợ giúp
+            </div>
+        </div>
+        
+        <!-- Tab nhập liệu -->
+        <div id="input-section" class="nav-content active">
+            <div id="form-container">
+                <!-- IMPROVED INFO BOX -->
+                <div class="improved-info-box">
+                    <div class="info-header">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Thông tin quan trọng</span>
+                    </div>
+                    
+                    <!-- Thông tin tự động -->
+                    <div class="info-section">
+                        <div class="info-section-title">
+                            <i class="fas fa-robot" style="color: #10b981;"></i>
+                            Thông tin tự động ghi nhận
+                        </div>
+                        <div class="info-section-content">
+                            Email người gửi và thời gian gửi sẽ được <strong>tự động ghi lại</strong> khi bạn gửi dữ liệu.
+                        </div>
+                    </div>
+
+                    <!-- Nơi lưu trữ dữ liệu -->
+                    <div class="info-section">
+                        <div class="info-section-title">
+                            <i class="fas fa-cloud-upload-alt" style="color: #3b82f6;"></i>
+                            Nơi lưu trữ dữ liệu
+                        </div>
+                        <div class="info-section-content">
+                            Dữ liệu sẽ được đẩy lên Google Sheet của team bạn:
+                            <br>
+                            <a href="#" id="sheet-link-view" target="_blank" class="sheet-link-improved">
+                                <i class="fas fa-table"></i>
+                                <span id="sheet-name-display">Xem Google Sheet</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Lưu ý về Monthly Format -->
+                    <div class="info-section">
+                        <div class="info-section-title">
+                            <i class="fas fa-exclamation-triangle" style="color: #f59e0b;"></i>
+                            Lưu ý về khách hàng chưa có Giá Tháng
+                        </div>
+                        <div class="info-section-content">
+                            Trường hợp bạn submit Special Price cho các <span class="highlight-text">khách hàng chưa có Giá Tháng</span> (có thể kiểm tra ở file KAMEREO Sales), 
+                            vui lòng điền thêm vào Form Thay Đổi Loại Giá để đảm bảo dữ liệu đầy đủ và đồng bộ:
+                            <br>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSettWKs1g8MnmKjUR86ZkjolG1cyXwPUBHf9KrCr7dE9-JrhA/viewform" 
+                               id="monthly-format-link" 
+                               target="_blank" 
+                               class="monthly-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Cập nhật Monthly Format</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FORM FIELDS WITH REQUIRED MARKS -->
+                <div class="form-row">
+                    <div class="form-group-improved">
+                        <label class="form-label-improved">
+                            Loại Giá<span class="required-mark">*</span>
+                        </label>
+                        <select id="priceType" class="form-input-improved" required>
+                            <option value="">-- Chọn loại giá --</option>
+                            <option value="Horeca Monthly 15th">Horeca Monthly 15th</option>
+                            <option value="MT Monthly 15th">MT Monthly 15th</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group vibrant-date-section">
+                    <label class="section-title">
+                        Thời gian áp dụng (Bấm vào icon Calendar để điều chỉnh)<span class="required-mark">*</span>
+                    </label>
+                    <div class="date-container">
+                        <div class="date-row">
+                            <label class="date-label" for="startDate">Từ ngày:</label>
+                            <input type="date" id="startDate" class="date-input" required>
+                        </div>
+                        <div class="date-row">
+                            <label class="date-label" for="endDate">Đến ngày:</label>
+                            <input type="date" id="endDate" class="date-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="customer-info-container">
+                    <h3 class="section-header-with-required">
+                        <i class="fas fa-users"></i>
+                        Danh sách Customer ID<span class="required-mark">*</span>
+                    </h3>
+                    <div class="customer-paste-help">Nhập mỗi Customer ID một dòng nếu các Customer ID này có chung "Thông tin SKU và Giá"</div>
+                    <div class="textarea-container">
+                        <textarea id="buyerPasteArea" 
+                                  placeholder="Nhập mỗi Customer ID một dòng: 
+VD: 9684
+    8604
+    9859
+    ..." 
+                                  required></textarea>
+                    </div>
+                </div>
+                
+                <!-- VAT Info Section -->
+                <div class="vat-info-container">
+                    <div class="vat-info-header">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Thông tin về VAT</span>
+                    </div>
+                    <div class="vat-info-content">
+                        <strong>Hệ thống mặc định xử lý theo: <span style="color: #059669; font-weight: bold;">Giá Trước VAT</span></strong>
+                        <div class="vat-info-note">
+                            💡 Vui lòng đảm bảo rằng các giá bạn nhập là giá chưa bao gồm VAT (giá trước VAT).
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sku-info-container">
+                    <h3 class="section-header-with-required">
+                        <i class="fas fa-tag"></i>
+                        Thông tin SKU và Giá<span class="required-mark">*</span>
+                    </h3>
+                    <div class="sku-paste-help">Dán dữ liệu từ clipboard với 2 cột: SKU và Giá đặc biệt</div>
+                    <div class="textarea-container">
+                        <textarea id="skuPasteArea" 
+                                  placeholder="Dán dữ liệu SKU và Special Price (2 cột từ Excel hoặc sheet)
+VD: A814  26000
+    A009  33000" 
+                                  required></textarea>
+                    </div>
+                </div>
+                
+                <div id="previewContainer" class="preview-container">
+                    <h3><i class="fas fa-eye section-icon"></i> Xem trước dữ liệu sẽ được gửi</h3>
+                    
+                    <div class="request-no-container">
+                        <div class="request-no-header">
+                            <i class="fas fa-hashtag"></i>
+                            <h4>Request No (Mã yêu cầu)</h4>
+                        </div>
+                        <div class="request-no-value" id="request-no-display">-</div>
+                        <p class="request-no-note">Vui lòng lưu lại mã này để dễ dàng tham chiếu hoặc chỉnh sửa sau này.</p>
+                    </div>
+                    
+                    <div id="previewContent"></div>
+                </div>
+                
+                <div id="result" class="result"></div>
+                
+                <div id="buttonContainer" class="button-container">
+                    <button type="button" class="btn btn-preview" id="previewButton">
+                        <i class="fas fa-eye btn-icon"></i> Xem trước dữ liệu
+                    </button>
+                    <button type="button" class="btn btn-submit" id="submitButton">
+                        <i class="fas fa-paper-plane btn-icon"></i> Gửi dữ liệu
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab trợ giúp -->
+        <div id="help-section" class="nav-content">
+            <h2><i class="fas fa-book section-icon"></i> Hướng dẫn sử dụng</h2>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-tasks"></i> Quy trình nhập liệu</h3>
+                <p>Hệ thống cho phép bạn nhập thông tin giá đặc biệt cho nhiều khách hàng và sản phẩm cùng một lúc:</p>
+                <ol>
+                    <li><strong>Chọn loại giá <span class="required-mark">*</span></strong> mà khách sẽ được áp dụng từ danh sách dropdown.</li>
+                    <li><strong>Thiết lập thời gian áp dụng <span class="required-mark">*</span></strong> (ngày bắt đầu và ngày kết thúc).</li>
+                    <li><strong>Dán dữ liệu khách hàng <span class="required-mark">*</span></strong> từ Excel hoặc Google Sheets (Customer ID).</li>
+                    <li><strong>Hệ thống mặc định xử lý theo "Giá Trước VAT"</strong> - bạn sẽ được yêu cầu xác nhận khi xem trước.</li>
+                    <li><strong>Dán dữ liệu SKU <span class="required-mark">*</span></strong> từ Excel hoặc Google Sheets (SKU và Giá đặc biệt).</li>
+                    <li>Nhấn "Xem trước dữ liệu" để kiểm tra thông tin trước khi gửi.</li>
+                    <li>Nhấn "Gửi dữ liệu" để lưu vào hệ thống.</li>
+                </ol>
+            </div>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-exclamation-triangle"></i> Lưu ý quan trọng:</h3>
+                <ul>
+                    <li>Các trường có dấu <span class="required-mark">*</span> là <strong>bắt buộc phải nhập</strong>.</li>
+                    <li>Một <strong>Request No.</strong> sẽ được tạo tự động cho mỗi yêu cầu. Hãy chú ý mã này trên file Record để dễ dàng tham chiếu sau này.</li>
+                    <li><strong>Hệ thống mặc định xử lý theo "Giá Trước VAT"</strong> - đảm bảo các giá bạn nhập là giá chưa bao gồm VAT.</li>
+                    <li>Ngày áp dụng chỉ có thể chọn từ ngày mai trở đi, không được chọn ngày hôm nay hoặc quá khứ.</li>
+                    <li>Ngày kết thúc phải sau ngày bắt đầu và tối đa 3 tháng từ hiện tại.</li>
+                    <li>Khi paste dữ liệu, đảm bảo dữ liệu có đúng định dạng và thứ tự các cột.</li>
+                    <li>Luôn xem trước dữ liệu trước khi gửi để đảm bảo chính xác.</li>
+                    <li>Mỗi team chỉ xem được dữ liệu của team đó trên file Google Sheet riêng biệt.</li>
+                </ul>
+            </div>
+            
+            <div class="help-card">
+                <h3><i class="fas fa-lock"></i> Phân quyền truy cập:</h3>
+                <ul>
+                    <li>Mỗi thành viên chỉ được truy cập vào team mình thuộc về</li>
+                    <li>Admin có quyền truy cập vào tất cả các team</li>
+                    <li>Dữ liệu của mỗi team được lưu trữ trong từng file Google Sheet riêng biệt</li>
+                </ul>
+            </div>
+            
+            <div class="help-card contact-support">
+                <h3><i class="fas fa-headset"></i> Liên hệ hỗ trợ</h3>
+                <p>Nếu bạn gặp khó khăn hoặc có câu hỏi, vui lòng liên hệ với người quản trị hệ thống.</p>
+                <p>Email: <a href="mailto:dat.pham@kamereo.vn">dat.pham@kamereo.vn</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Overlay với các trạng thái mới -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <!-- State 1: Sending -->
+            <div class="loading-state state-sending active" id="state-sending">
+                <div class="loading-icon">
+                    <div class="loading-spinner"></div>
+                </div>
+                <div class="loading-text">Đang gửi dữ liệu...</div>
+                <div class="loading-subtext">Vui lòng chờ trong giây lát</div>
+                <div class="loading-progress-container">
+                    <div class="loading-progress-bar"></div>
+                </div>
+                <div class="loading-percentage">0%</div>
+            </div>
+            
+            <!-- State 2: Processing -->
+            <div class="loading-state state-processing" id="state-processing">
+                <div class="loading-icon">
+                    <div class="process-animation">
+                        <div class="process-bar"></div>
+                    </div>
+                </div>
+                <div class="loading-text">Đang xử lý...</div>
+                <div class="loading-subtext">Hệ thống đang ghi nhận dữ liệu của bạn</div>
+            </div>
+            
+            <!-- State 3: Success -->
+            <div class="loading-state state-success" id="state-success">
+                <div class="loading-icon">
+                    <div class="success-circle">
+                        <div class="success-check"></div>
+                    </div>
+                </div>
+                <div class="loading-text">Hoàn thành!</div>
+                <div class="loading-subtext">Dữ liệu đã được gửi thành công</div>
+            </div>
+            
+            <!-- State 4: Error -->
+            <div class="loading-state state-error" id="state-error">
+                <div class="loading-icon">
+                    <div class="error-circle">
+                        <div class="error-x"></div>
+                    </div>
+                </div>
+                <div class="loading-text">Có lỗi xảy ra!</div>
+                <div class="loading-subtext" id="error-message">Vui lòng thử lại</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Dialog for High Prices -->
+    <div id="confirm-dialog" class="confirm-dialog" style="display: none;">
+        <div class="confirm-content">
+            <h3>Xác nhận giá cao</h3>
+            <div class="confirm-message" id="confirm-message"></div>
+            <div class="confirm-buttons">
+                <button class="btn btn-secondary" id="cancel-btn">Hủy</button>
+                <button class="btn btn-primary" id="confirm-btn">Xác nhận giá chính xác</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- VAT Confirmation Dialog -->
+    <div id="vat-confirm-dialog" class="vat-confirm-dialog">
+        <div class="vat-confirm-content">
+            <button class="vat-close-btn" id="vat-close-btn">&times;</button>
+            
+            <div class="vat-confirm-header">
+                <div class="vat-confirm-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 class="vat-confirm-title">Xác nhận loại giá VAT</h3>
+                <p class="vat-confirm-subtitle">Vui lòng xác nhận thông tin trước khi tiếp tục</p>
+            </div>
+
+            <div class="vat-confirm-message">
+                <div class="vat-confirm-message-main">
+                    Bạn có chắc đã nhập <span class="vat-price-highlight">Giá Trước VAT</span> không?
+                </div>
+                <div class="vat-confirm-message-sub">
+                    Hệ thống sẽ xử lý tất cả các giá bạn vừa nhập như là <strong>giá chưa bao gồm VAT</strong>
+                </div>
+            </div>
+
+            <div class="vat-info-box">
+                <h4><i class="fas fa-lightbulb"></i> Lưu ý quan trọng:</h4>
+                <ul class="vat-info-list">
+                    <li><strong>Giá Trước VAT:</strong> Giá chưa cộng thuế VAT (VD: 100,000 VNĐ)</li>
+                    <li><strong>Giá Sau VAT:</strong> Giá đã bao gồm thuế VAT (VD: 110,000 VNĐ)</li>
+                    <li>Nếu bạn đã nhập nhầm giá sau VAT, vui lòng quay lại chỉnh sửa</li>
+                </ul>
+            </div>
+
+            <div class="vat-confirm-buttons">
+                <button class="vat-btn vat-btn-secondary" id="vat-cancel-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Quay lại chỉnh sửa
+                </button>
+                <button class="vat-btn vat-btn-primary" id="vat-confirm-btn">
+                    <i class="fas fa-check-circle"></i>
+                    Xác nhận Giá Trước VAT
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Dialog -->
+    <div id="success-dialog" class="success-dialog" style="display: none;">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 id="success-title">Gửi dữ liệu thành công!</h3>
+            <div class="success-message" id="success-message"></div>
+            <div class="success-buttons" id="success-buttons"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 Hệ thống quản lý giá đặc biệt được tạo bởi Team BOS.</p>
+    </div>
+
+    <!-- Hidden iframe for form submission -->
+    <iframe id="hidden_iframe" name="hidden_iframe" style="display:none;"></iframe>
+
+    <!-- Thêm các script cần thiết -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/webapp.js"></script>
+</body>
+</html>

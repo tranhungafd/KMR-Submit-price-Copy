@@ -1,0 +1,124 @@
+/* CSS để thêm vào main.css hoặc tạo file auth-admin.css riêng */
+
+/* Giao diện Admin */
+.auth-container.admin-container {
+    max-width: 900px;
+    width: 90%;
+    padding: 30px;
+}
+
+.admin-team-selection {
+    text-align: left;
+}
+
+.admin-welcome {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-badge {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.admin-welcome h2 {
+    color: #333;
+    margin: 0 0 10px;
+    font-size: 1.6rem;
+}
+
+.admin-welcome p {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.admin-team-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.admin-region {
+    margin-bottom: 25px;
+}
+
+.admin-region-header {
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.admin-region-header h3 {
+    color: #3b82f6;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.admin-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.admin-team-card {
+    background-color: #f7fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-team-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    background-color: white;
+    border-color: #3b82f6;
+}
+
+.admin-team-icon {
+    font-size: 30px;
+    margin-right: 15px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.admin-team-details {
+    flex: 1;
+}
+
+.admin-team-details h4 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    color: #2d3748;
+}
+
+.admin-team-details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #718096;
+    line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+    .admin-team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .auth-container.admin-container {
+        padding: 20px;
+    }
+}

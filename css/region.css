@@ -1,0 +1,138 @@
+/* region.css - Style cho trang chọn khu vực */
+
+:root {
+    --primary-color: #3b82f6;
+    --secondary-color: #2980b9;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+.region-title {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.region-title h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.region-title p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.team-selection {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.team-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
+}
+
+.team-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.team-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.team-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.back-button {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.btn-back {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.loading-spinner {
+    margin-bottom: 15px;
+}
+
+.error-message {
+    grid-column: 1 / -1;
+    background-color: #fed7d7;
+    color: #c53030;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.error-message p {
+    margin-bottom: 15px;
+}
+
+.error-message button {
+    background-color: #c53030;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.error-message button:hover {
+    background-color: #9b2c2c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .region-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .region-title p {
+        font-size: 1rem;
+    }
+
+    .team-selection {
+        padding: 10px;
+        grid-template-columns: 1fr;
+    }
+}
